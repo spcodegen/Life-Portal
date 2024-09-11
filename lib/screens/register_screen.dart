@@ -14,8 +14,14 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   //form key for the form validation
   final _formKey = GlobalKey<FormState>();
-
   String? _title;
+  final firstname = TextEditingController();
+  final lastname = TextEditingController();
+  final username = TextEditingController();
+  final nationalID = TextEditingController();
+  final mobile = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                             //form feild for the first name
                             TextFormField(
+                              controller: firstname,
                               keyboardType: TextInputType.name,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -133,6 +140,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                             //form feild for the last name
                             TextFormField(
+                              controller: lastname,
                               keyboardType: TextInputType.name,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -157,6 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                             //form feild for the user name
                             TextFormField(
+                              controller: username,
                               keyboardType: TextInputType.name,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -181,6 +190,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                             //form feild for the ID number
                             TextFormField(
+                              controller: nationalID,
                               keyboardType: TextInputType.text,
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
@@ -213,6 +223,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                             //form feild for the mobile number
                             TextFormField(
+                              controller: mobile,
                               keyboardType: TextInputType.phone,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -240,6 +251,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                             //form feild for the email
                             TextFormField(
+                              controller: email,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Please enter E-Mail';
@@ -266,6 +278,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
 
                             TextFormField(
+                              controller: password,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Please enter Password';
@@ -289,7 +302,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                if (_formKey.currentState!.validate()) {}
+                                if (_formKey.currentState!.validate()) {
+                                  //form is valid, process data
+                                  String firstName = firstname.text;
+                                  String lastName = lastname.text;
+                                  String userName = username.text;
+                                  String nationalId = nationalID.text;
+                                  String mobileNo = mobile.text;
+                                  String emailAddress = email.text;
+                                  String pass = password.text;
+
+                                  print(
+                                      "$firstName, $lastName, $userName, $nationalId, $mobileNo, $emailAddress, $pass");
+                                }
                               },
                               child: const CustomButton(
                                 buttonName: "Submit",
