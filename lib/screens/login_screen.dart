@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onPressed: () => Navigator.of(context).pop(),
             ),
           ),
-          body: SafeArea(
+          body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 50,
