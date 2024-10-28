@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:life_portal_main/data/user.dart';
 import 'package:life_portal_main/screens/decision_screen.dart';
 import 'package:life_portal_main/screens/main_menu_screen.dart';
 import 'package:life_portal_main/screens/login_screen.dart';
 import 'package:life_portal_main/screens/owner_vehicle_screen.dart';
+import 'package:life_portal_main/screens/policyinfo.dart';
 import 'package:life_portal_main/screens/register_screen.dart';
 import 'package:life_portal_main/screens/vehicle_details_screen.dart';
 import 'package:life_portal_main/screens/welcome_screen.dart';
@@ -90,6 +90,13 @@ class RouterClass {
         path: "/ownerscreen",
         builder: (context, state) {
           return const OwnerVehicleScreen();
+        },
+      ),
+      //policyinfo Screen
+      GoRoute(
+        path: "/policyinfo",
+        builder: (context, state) {
+          return const Policyinfo();
         },
       ),
     ],
