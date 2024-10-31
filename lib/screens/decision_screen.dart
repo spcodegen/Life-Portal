@@ -23,7 +23,7 @@ class DecisionScreen extends StatelessWidget {
                 children: [
                   const Center(
                     child: Text(
-                      "Are You already one of our customer?",
+                      "Are you an existing customers?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20,
@@ -39,7 +39,8 @@ class DecisionScreen extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          GoRouter.of(context).push("/login");
+                          //GoRouter.of(context).push("/login");
+                          Navigator.pushNamed(context, '/login');
                         },
                         child: const Text("Yes"),
                       ),
@@ -48,7 +49,8 @@ class DecisionScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          GoRouter.of(context).push("/vehicleDetails");
+                          //GoRouter.of(context).push("/vehicleDetails");
+                          Navigator.pushNamed(context, '/vehicleDetails');
                         },
                         child: const Text("No"),
                       ),

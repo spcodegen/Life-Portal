@@ -13,7 +13,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
   int _selectedIndex = 0;
 
   final _page = [
-    const ServicePage(),
+    //const ServicePage(),
     const AboutPage(),
   ];
 

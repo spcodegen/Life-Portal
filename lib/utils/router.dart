@@ -86,7 +86,7 @@ class RouterClass {
       ),
 
       //ownervehicle Screen
-      GoRoute(
+      /*GoRoute(
         path: "/ownerscreen",
         builder: (context, state) {
           return const OwnerVehicleScreen();
@@ -98,7 +98,7 @@ class RouterClass {
         builder: (context, state) {
           return const Policyinfo();
         },
-      ),
+      ),*/
     ],
   );
 }

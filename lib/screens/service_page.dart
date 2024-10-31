@@ -3,7 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ServicePage extends StatefulWidget {
-  const ServicePage({super.key});
+  final String nicNumber;
+  const ServicePage({super.key, required this.nicNumber});
 
   @override
   State<ServicePage> createState() => _ServicePageState();

@@ -5,7 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
 class Policyinfo extends StatefulWidget {
-  const Policyinfo({super.key});
+  final String nicNumber;
+  const Policyinfo({super.key, required this.nicNumber});
 
   @override
   State<Policyinfo> createState() => _PolicyinfoState();

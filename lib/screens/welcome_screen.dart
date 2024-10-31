@@ -36,7 +36,8 @@ class WelcomeScreen extends StatelessWidget {
                         width: 200,
                         child: GestureDetector(
                           onTap: () {
-                            GoRouter.of(context).go("/decision");
+                            //GoRouter.of(context).go("/decision");
+                            Navigator.pushNamed(context, '/decision');
                           },
                           child: const CustomButton(
                             buttonName: "Get Started",
