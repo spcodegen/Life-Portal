@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:life_portal_main/screens/about_page.dart';
 import 'package:life_portal_main/screens/decision_screen.dart';
 import 'package:life_portal_main/screens/login_screen.dart';
+import 'package:life_portal_main/screens/main_menu_screen.dart';
 import 'package:life_portal_main/screens/owner_vehicle_screen.dart';
 import 'package:life_portal_main/screens/policyinfo.dart';
 import 'package:life_portal_main/screens/register_screen.dart';
 import 'package:life_portal_main/screens/service_page.dart';
 import 'package:life_portal_main/screens/vehicle_details_screen.dart';
 import 'package:life_portal_main/screens/welcome_screen.dart';
-import 'package:life_portal_main/utils/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,15 +19,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /*return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: RouterClass().router,
-    );*/
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       onGenerateRoute: (settings) {
         final args = settings.arguments;
+
         switch (settings.name) {
           case '/':
             return MaterialPageRoute(
@@ -39,7 +37,17 @@ class MyApp extends StatelessWidget {
           case '/register':
             return MaterialPageRoute(
                 builder: (context) => const RegisterScreen());
-          case '/Choises':
+          case '/about':
+            return MaterialPageRoute(builder: (context) => const AboutPage());
+          case '/main':
+            if (args is String) {
+              // Ensure you're passing nicNumber properly
+              return MaterialPageRoute(
+                builder: (context) => MainMenuScreen(nicNumber: args),
+              );
+            }
+            return _errorRoute();
+          case '/service':
             if (args is String) {
               return MaterialPageRoute(
                 builder: (context) => ServicePage(nicNumber: args),
@@ -63,15 +71,6 @@ class MyApp extends StatelessWidget {
           case '/vehicleDetails':
             return MaterialPageRoute(
                 builder: (context) => const VehicleDetailsScreen());
-          /*case '/Inspection':
-            return MaterialPageRoute(
-                builder: (context) => const VehicleInspec());
-          case '/Change':
-            return MaterialPageRoute(
-                builder: (context) => const ChangePassword());
-          case '/onsite':
-            return MaterialPageRoute(
-                builder: (context) => const OnsiteInspection());*/
           default:
             return _errorRoute();
         }
@@ -79,6 +78,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
+  // Error route if the path does not match any valid route.
   Route<dynamic> _errorRoute() {
     return MaterialPageRoute(
       builder: (context) => Scaffold(

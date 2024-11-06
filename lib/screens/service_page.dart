@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ServicePage extends StatefulWidget {
   final String nicNumber;
+
   const ServicePage({super.key, required this.nicNumber});
 
   @override
@@ -12,7 +13,11 @@ class ServicePage extends StatefulWidget {
 
 class _ServicePageState extends State<ServicePage> {
   void _launchURL(String url) async {
-    launch(url);
+    if (await canLaunch(url)) {
+      launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -28,7 +33,7 @@ class _ServicePageState extends State<ServicePage> {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: const Text("Main Menu"),
+            title: const Text("Service Page"),
             backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
@@ -48,27 +53,30 @@ class _ServicePageState extends State<ServicePage> {
                 _buildButton(
                   context,
                   'Policy Information',
-                  '/policyinfo',
+                  '/Policyinfo',
                   imagePath: 'assets/policy.png',
-                  //nicNumber: widget.nicNumber,
+                  nicNumber: widget.nicNumber,
                 ),
                 _buildButton(
                   context,
                   'Vehicle Inspection',
                   '/Inspection',
                   imagePath: 'assets/protection.png',
+                  nicNumber: widget.nicNumber,
                 ),
                 _buildButton(
                   context,
                   'ARI',
-                  imagePath: 'assets/insurance.png',
                   null,
+                  imagePath: 'assets/insurance.png',
+                  nicNumber: widget.nicNumber,
                 ),
                 _buildButton(
                   context,
                   'Accident Report',
                   '/Accident',
                   imagePath: 'assets/crash.png',
+                  nicNumber: widget.nicNumber,
                 ),
                 _buildButton(
                   context,
@@ -96,7 +104,7 @@ class _ServicePageState extends State<ServicePage> {
                   'Customer feedback',
                   null,
                   imagePath: 'assets/customer.png',
-                  url: 'https://ci.lk/complaint/ ',
+                  url: 'https://ci.lk/complaint/',
                 ),
               ],
             ),
@@ -106,8 +114,14 @@ class _ServicePageState extends State<ServicePage> {
     );
   }
 
-  Widget _buildButton(BuildContext context, String text, String? route,
-      {String? imagePath, String? nicNumber, String? url}) {
+  Widget _buildButton(
+    BuildContext context,
+    String text,
+    String? route, {
+    String? imagePath,
+    String? nicNumber,
+    String? url,
+  }) {
     return SizedBox(
       width: 150,
       height: 100,
@@ -122,9 +136,10 @@ class _ServicePageState extends State<ServicePage> {
         ),
         onPressed: () {
           if (url != null) {
-            _launchURL(url);
-          } else if (route != null) {
-            GoRouter.of(context).push(route);
+            _launchURL(url); // Launch URL if provided
+          } else if (route != null && nicNumber != null) {
+            // Pass NIC number if route is provided
+            GoRouter.of(context).push(route, extra: nicNumber);
           }
         },
         child: Column(
@@ -136,9 +151,7 @@ class _ServicePageState extends State<ServicePage> {
                 height: 60,
                 width: 60,
               ),
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
             Text(
               text,
               textAlign: TextAlign.center,

@@ -204,7 +204,7 @@ class _OwnerVehicleScreenState extends State<OwnerVehicleScreen> {
                             ? () {
                                 Navigator.pushNamed(
                                   context,
-                                  '/Choises',
+                                  '/main',
                                   arguments: widget.nicNumber,
                                 );
                               }

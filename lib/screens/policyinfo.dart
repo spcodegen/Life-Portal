@@ -1,11 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
 class Policyinfo extends StatefulWidget {
   final String nicNumber;
+
   const Policyinfo({super.key, required this.nicNumber});
 
   @override
@@ -19,8 +19,9 @@ class _PolicyinfoState extends State<Policyinfo> {
 
   Future<void> _fetchPolicyInfo() async {
     try {
-      final Uri apiUrl =
-          Uri.parse('http://124.43.209.68:9000/api/v1/getuserbyid/721473708V');
+      // Use the passed nicNumber for API call
+      final Uri apiUrl = Uri.parse(
+          'http://124.43.209.68:9000/api/v1/getuserbyid/${widget.nicNumber}');
       final response = await http.get(apiUrl);
 
       if (response.statusCode == 200) {
@@ -56,6 +57,12 @@ class _PolicyinfoState extends State<Policyinfo> {
   String _formatDate(String dateString) {
     final date = DateTime.parse(dateString);
     return DateFormat('yyyy-MM-dd - HH:mm:ss').format(date);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchPolicyInfo(); // Fetch policy info on page load
   }
 
   @override
@@ -122,6 +129,7 @@ class _PolicyinfoState extends State<Policyinfo> {
         ),
         child: TextField(
           controller: _searchController,
+          onChanged: (value) => _onSearchChanged(),
           decoration: const InputDecoration(
             prefixIcon: Icon(Icons.search, color: Colors.grey),
             hintText: 'Search by Vehicle Number',

@@ -78,15 +78,15 @@ class RouterClass {
       ),
 
       //Home Screen
-      GoRoute(
+      /*GoRoute(
         path: "/main",
         builder: (context, state) {
           return const MainMenuScreen();
         },
       ),
-
+      
       //ownervehicle Screen
-      /*GoRoute(
+      GoRoute(
         path: "/ownerscreen",
         builder: (context, state) {
           return const OwnerVehicleScreen();
