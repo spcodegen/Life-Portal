@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_portal_main/constants/colors.dart';
+import 'package:life_portal_main/screens/global_data.dart';
 import 'package:life_portal_main/screens/register_screen.dart';
 import 'package:life_portal_main/widgets/custom_button.dart';
 import 'package:http/http.dart' as http;
@@ -338,6 +339,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             if (userData['user_name'] == username &&
                 userData['password'] == password) {
+              GlobalData.setLoggedInUserName(username);
               Navigator.pushReplacementNamed(
                 context,
                 '/ownerscreen',
@@ -360,6 +362,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           if (userData['user_name'] == username &&
               userData['password'] == password) {
+            GlobalData.setLoggedInUserName(username);
             Navigator.pushReplacementNamed(
               context,
               '/ownerscreen',
