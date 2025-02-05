@@ -116,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/2.png'),
+            image: AssetImage('assets/background-new.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -405,7 +405,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  backgroundColor: Colors.green,
+                                  backgroundColor: Colors.white70,
                                   elevation: 20,
                                   shadowColor:
                                       const Color.fromARGB(255, 0, 0, 0),
@@ -496,10 +496,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: const Text(
                                   'Register Me',
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      fontFamily: 'Georgia',
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold),
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontFamily: 'Georgia',
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),

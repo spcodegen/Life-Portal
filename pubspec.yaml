@@ -75,6 +75,7 @@ flutter:
     - assets/welcomeback.png
     - assets/lifeimageback.png
     - assets/logo.png
+    - assets/Logo.png
     - assets/wave.png
     - assets/green.png
     - assets/1.png
@@ -90,6 +91,8 @@ flutter:
     - assets/facebook.png
     - assets/linkedin.png
     - assets/youtube.png
+    - assets/background.png
+    - assets/background-new.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

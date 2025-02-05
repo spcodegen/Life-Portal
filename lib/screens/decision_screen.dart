@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class DecisionScreen extends StatelessWidget {
   const DecisionScreen({super.key});
@@ -10,7 +9,8 @@ class DecisionScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/2.png"), fit: BoxFit.cover),
+              image: AssetImage("assets/background-new.png"),
+              fit: BoxFit.cover),
         ),
         child: Stack(
           children: <Widget>[
@@ -26,8 +26,9 @@ class DecisionScreen extends StatelessWidget {
                       "Are you an existing customers?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 22,
                         fontWeight: FontWeight.w600,
+                        color: Colors.white,
                       ),
                     ),
                   ),

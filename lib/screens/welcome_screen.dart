@@ -12,7 +12,7 @@ class WelcomeScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/2.png'),
+            image: AssetImage('assets/background-new.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -25,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Image.asset(
-                        "assets/logo.png",
+                        "assets/Logo.png",
                         height: 125,
                         width: 125,
                       ),

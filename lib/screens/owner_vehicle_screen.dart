@@ -99,7 +99,7 @@ class _OwnerVehicleScreenState extends State<OwnerVehicleScreen> {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/2.png'),
+            image: AssetImage('assets/background-new.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -193,9 +193,8 @@ class _OwnerVehicleScreenState extends State<OwnerVehicleScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          backgroundColor: isProceedEnabled
-                              ? Color.fromARGB(255, 51, 212, 37)
-                              : Colors.grey,
+                          backgroundColor:
+                              isProceedEnabled ? Colors.white70 : Colors.grey,
                           elevation: 20,
                           shadowColor: const Color.fromARGB(255, 0, 0, 0),
                           minimumSize: Size(double.infinity, 50),

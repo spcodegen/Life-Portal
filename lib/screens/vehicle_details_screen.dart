@@ -2,10 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
 import 'package:life_portal_main/constants/colors.dart';
 import 'package:life_portal_main/screens/global_data.dart';
-import 'package:life_portal_main/widgets/custom_button.dart';
 import 'package:http/http.dart' as http;
 
 class VehicleDetailsScreen extends StatefulWidget {
@@ -131,7 +129,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/2.png'),
+            image: AssetImage('assets/background-new.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -227,7 +225,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(15),
                                       ),
-                                      backgroundColor: Colors.green,
+                                      backgroundColor: Colors.white70,
                                       elevation: 10,
                                     ),
                                     onPressed: _saveVehicleDetails,

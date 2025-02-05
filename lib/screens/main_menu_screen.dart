@@ -207,7 +207,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
                 Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/background2.png'),
+                      image: AssetImage('assets/1.png'),
                       fit: BoxFit.cover,
                     ),
                   ),

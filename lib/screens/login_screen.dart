@@ -3,11 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
 import 'package:life_portal_main/constants/colors.dart';
 import 'package:life_portal_main/screens/global_data.dart';
 import 'package:life_portal_main/screens/register_screen.dart';
-import 'package:life_portal_main/widgets/custom_button.dart';
 import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
@@ -34,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-//method start textfeild
   static const _inputBorder = OutlineInputBorder(
     borderSide: BorderSide(color: Colors.white),
   );
@@ -46,7 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
     focusedBorder: _inputBorder,
     enabledBorder: _inputBorder,
   );
-//end
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/3.png'),
+            image: AssetImage('assets/background-new.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -132,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           const SizedBox(
                             height: 15,
                           ),
-                          //National ID Number Text field
+                          //
                           _buildTextField(
                             controller: _passwordController,
                             labelText: 'Password:',
@@ -147,90 +143,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           const SizedBox(
                             height: 15,
                           ),
-
-                          /*TextFormField(
-                            controller: _userNameController,
-                            validator: (value) {
-                              //check weather the user enterd a valid user name
-                              if (value!.isEmpty) {
-                                return "Please enter User Name";
-                              }
-                            },
-                            decoration: InputDecoration(
-                              hintText: 'User Name',
-                              hintStyle: const TextStyle(
-                                color: kWhite,
-                                fontSize: 15,
-                              ),
-                              border: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: kRed,
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              contentPadding: const EdgeInsets.all(18),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),*/
-
-                          //form feild for the national ID
-
-                          /*TextFormField(
-                            controller: _idNumberController,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Please enter National ID Number';
-                              }
-                              if (!RegExp(r'^\d{12}$').hasMatch(value) &&
-                                  !RegExp(r'^\d{9}[vV]$').hasMatch(value)) {
-                                return 'Enter a 12-digit number or a 9-digit number followed by V or v';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              hintText: 'National ID Number',
-                              hintStyle: const TextStyle(
-                                color: kWhite,
-                                fontSize: 15,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              contentPadding: const EdgeInsets.all(18),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),*/
-
-                          //form feild for the password
-                          /*TextFormField(
-                            controller: _passwordController,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Please enter Password";
-                              }
-                            },
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: 'Password',
-                              hintStyle: const TextStyle(
-                                color: kWhite,
-                                fontSize: 15,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              contentPadding: const EdgeInsets.all(18),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),*/
-
                           SizedBox(
                             width: 280,
                             height: 50,
@@ -239,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
-                                backgroundColor: Colors.green,
+                                backgroundColor: Colors.white60,
                                 elevation: 10,
                                 shadowColor: const Color.fromARGB(255, 6, 6, 6),
                               ),
@@ -260,26 +172,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                           ),
-
-                          /*GestureDetector(
-                            onTap: () {
-                              if (_formKey.currentState!.validate()) {
-                                //form is valid, process data
-                                String userName = _userNameController.text;
-                                String nic = _idNumberController.text;
-                                String password = _passwordController.text;
-
-                                print("$userName $nic $password");
-                                GoRouter.of(context).push("/ownerscreen");
-                              }
-                            },
-                            child: const CustomButton(
-                              buttonName: "Login Now",
-                              buttonColor: kWhite,
-                              buttonTextColor: kBlack,
-                            ),
-                          ),*/
-
                           const SizedBox(
                             height: 15,
                           ),
